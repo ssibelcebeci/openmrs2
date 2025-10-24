@@ -1,48 +1,45 @@
-<h1 align="center">OpenMRS.org Project - E2E Test Automation</h1>
-Bu proje, [OpenMRS](https://openmrs.org/) platformu için geliştirilmiş bir uçtan uca (E2E) test otomasyon suitidir. Amaç, kritik kullanıcı hikayelerini (User Stories) doğrulamak ve sistemin kararlılığını garanti altına almaktır.
+<h1 align="center">OpenMRS.org Project - Test Automation</h1>
+
+This project is a test automation suite for the [OpenMRS](https://o2.openmrs.org/) platform. Its purpose is to validate critical user stories and ensure system stability.
 
 ---
 
-## 🎯 Test Kapsamı (User Stories)
+## 🎯 Test Scope (User Stories)
 
-Bu framework, iki ana kullanıcı rolünün (Doktor ve Kullanıcı) kritik iş akışlarını test eder:
+This framework tests the critical workflows for two primary user roles: Doctor and General User.
 
-### 👤 Kullanıcı Senaryoları
-* Başarılı ve hatalı **Giriş (Login)** senaryoları.
-* Güvenli **Çıkış (Logout)** işlemi.
-* Yeni **Hasta Kaydı** oluşturma.
-* **Hesap Ayarlarına** hızlı erişim.
-* Farklı zaman dilimi (Timezone) için randevu hatasının doğrulanması.
+### 👤 User Scenarios
+* Successful and failed **Login** attempts.
+* Secure **Logout** process.
+* New **Patient Registration**.
+* Quick access to **Account Settings**.
+* Verification of appointment errors for incorrect timezones.
 
-### 🩺 Doktor Senaryoları
-* Tüm hastaları **Listeleme**.
-* Hasta **Arama** (İsim veya ID ile).
-* İki ayrı hasta kaydını **Birleştirme (Merge)**.
-* Bir hasta kaydını **Silme (Delete)**.
-
----
-
-## 🛠️ Teknoloji ve Araçlar
-
-* **Dil:** Java
-* **Otomasyon:** Selenium WebDriver
-* **Test Çerçevesi:** TestNG (Paralel test desteği ile)
-* **Tasarım Deseni:** Page Object Model (POM)
-* **Proje Yönetimi:** Maven
-* **Yapılandırma:** `configuration.properties` ile dinamik veri yönetimi
+### 🩺 Doctor Scenarios
+* **Listing** all patients.
+* **Searching** for a patient (by Name or ID).
+* **Merging** two separate patient records.
+* **Deleting** a patient record.
 
 ---
 
-## 🚀 Nasıl Çalıştırılır?
+## 🛠️ Tech Stack & Tools
 
-### 1. Kurulum
+* **Language:** Java
+* **Automation:** Selenium WebDriver
+* **Test Framework:** TestNG (with parallel execution support)
+* **Design Pattern:** Page Object Model (POM)
+* **Build Tool:** Maven
+* **Configuration:** Dynamic data management via `configuration.properties`
+
+---
+
+## 🚀 How to Run
 
 ```bash
-# Projeyi klonlayın
-git clone [GITHUB REPO ADRESINIZ]
+# Clone the repository
+git clone [YOUR GITHUB REPO URL]
 
-# Proje dizinine gidin
-cd [PROJE-KLASOR-ADI]
 
-# Gerekli bağımlılıkları yükleyin
+# Install dependencies
 mvn clean install
