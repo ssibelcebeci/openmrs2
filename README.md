@@ -38,7 +38,7 @@ This framework tests the critical workflows for two primary user roles: Doctor a
 
 ```bash
 # Clone the repository
-git clone [(https://github.com/ssibelcebeci/openmrs2.git)]
+git clone https://github.com/ssibelcebeci/openmrs2.git
 
 
 # Install dependencies
