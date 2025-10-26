@@ -16,20 +16,14 @@ public class US_407 extends ReusableMethods {
         FindPatientPage fpp = new FindPatientPage();
 
         driver.get(ConfigReader.getProperty("url"));
-        mySendKeys(lp.usernameInput, ConfigReader.getProperty("usernameValid"));
-        mySendKeys(lp.passwordInput, ConfigReader.getProperty("passwordValid"));
-        myClick(lp.inpatientWardLocation);
-        myClick(lp.loginBtn);
+        lp.loginValidUser();
 
         myClick(hp.findPatientRecordBtn);
-
         mySendKeys(fpp.searchField, ConfigReader.getProperty("givenNameForDelete"));
-        fpp.searchField.sendKeys(Keys.ENTER);
+        myClick(pip.chooseForDelete);
 
         myClick(pip.deletePatientBtn);
-
         mySendKeys(pip.deleteReasonInput, ConfigReader.getProperty("deleteReason"));
-
         myClick(pip.deleteConfirmBtn);
     }
 }

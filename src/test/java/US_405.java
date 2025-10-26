@@ -14,7 +14,7 @@ public class US_405 extends ReusableMethods {
     @Test
     public void myAccount() {
         LoginPage lp = new LoginPage();
-        HomePage hp=new HomePage();
+        HomePage hp = new HomePage();
         Random random = new Random();
         MyAccountPage map = new MyAccountPage();
         ChangePasswordPage cp = new ChangePasswordPage();
@@ -26,7 +26,6 @@ public class US_405 extends ReusableMethods {
         wait.until(ExpectedConditions.visibilityOfAllElements(lp.locations));
         int randomIndex = random.nextInt(lp.locations.size());
         myClick(lp.locations.get(randomIndex));
-
         myClick(lp.loginBtn);
 
         Actions actions = new Actions(driver);
@@ -36,9 +35,7 @@ public class US_405 extends ReusableMethods {
         myClick(hp.myAccountBtn);
 
         myClick(map.changePasswordBtn);
-
         myClick(cp.cancelBtn);
-
         myClick(map.myLanguagesBtn);
     }
 }

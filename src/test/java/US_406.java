@@ -15,20 +15,15 @@ public class US_406 extends ReusableMethods {
         HomePage hp = new HomePage();
         FindPatientPage fpp = new FindPatientPage();
         PatientInfoPage pip = new PatientInfoPage();
-        String searchByID = "100HM1";
+        String searchByID = "100HYE";
 
         driver.get(ConfigReader.getProperty("url"));
-        mySendKeys(lp.usernameInput, ConfigReader.getProperty("usernameValid"));
-        mySendKeys(lp.passwordInput, ConfigReader.getProperty("passwordValid"));
-        myClick(lp.inpatientWardLocation);
-        myClick(lp.loginBtn);
+        lp.loginValidUser();
 
         myClick(hp.findPatientRecordBtn);
 
         mySendKeys(fpp.searchField, ConfigReader.getProperty("givenName"));
-
         mySendKeys(fpp.searchField, ConfigReader.getProperty("familyName"));
-
         mySendKeys(fpp.searchField, searchByID);
         fpp.searchField.sendKeys(Keys.ENTER);
 
@@ -39,9 +34,7 @@ public class US_406 extends ReusableMethods {
         verifyContainsText(pip.patientAppointments, "APPOINTMENTS");
 
         myClick(pip.homeIcon);
-
         myClick(hp.findPatientRecordBtn);
-
         mySendKeys(fpp.searchField, ConfigReader.getProperty("givenNameInvalid"));
 
         verifyContainsText(fpp.noMatchText, "No matching records found");

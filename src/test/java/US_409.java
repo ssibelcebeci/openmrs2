@@ -13,14 +13,11 @@ public class US_409 extends ReusableMethods {
         MergePage mp = new MergePage();
         MergeSelectRecordPage msrp = new MergeSelectRecordPage();
         PatientInfoPage pip = new PatientInfoPage();
-        String firstID = "100J43";
-        String secondID = "100J35";
+        String firstID = "100HUN";
+        String secondID = "100HNY";
 
         driver.get(ConfigReader.getProperty("url"));
-        mySendKeys(lp.usernameInput, ConfigReader.getProperty("usernameValid"));
-        mySendKeys(lp.passwordInput, ConfigReader.getProperty("passwordValid"));
-        myClick(lp.inpatientWardLocation);
-        myClick(lp.loginBtn);
+        lp.loginValidUser();
 
         myClick(hp.dataManagementBtn);
 
@@ -29,7 +26,6 @@ public class US_409 extends ReusableMethods {
         mySendKeys(mp.firstPatientIDField, firstID);
         mySendKeys(mp.secondPatientIDField, secondID);
         mp.secondPatientIDField.sendKeys(Keys.ENTER);
-
         myClick(mp.confirmBtn);
 
         scrollToElement(msrp.checkText);
@@ -40,6 +36,6 @@ public class US_409 extends ReusableMethods {
 
         myClick(mp.confirmBtn);
 
-        verifyDisplayed(pip.confirmMerge, "Patient ID");
+        verifyContainsText(pip.confirmMerge, "Patient ID");
     }
 }

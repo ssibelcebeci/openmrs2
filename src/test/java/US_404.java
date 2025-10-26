@@ -12,8 +12,10 @@ public class US_404 extends ReusableMethods {
     @Test
     public void registerAPatient() {
         LoginPage lp = new LoginPage();
-        HomePage hp=new HomePage();
+        HomePage hp = new HomePage();
+
         RegisterAPatientPage rap = new RegisterAPatientPage();
+
         String birthdateDay = "25";
         String birthdateYear = "1990";
         String cityVillage = "505 Maple St";
@@ -24,61 +26,38 @@ public class US_404 extends ReusableMethods {
 
         driver.get(ConfigReader.getProperty("url"));
 
-        mySendKeys(lp.usernameInput, ConfigReader.getProperty("usernameValid"));
-
-        mySendKeys(lp.passwordInput, ConfigReader.getProperty("passwordValid"));
-
-        myClick(lp.inpatientWardLocation);
-
-        myClick(lp.loginBtn);
+        lp.loginValidUser();
 
         verifyContainsText(hp.loggedInMessage, "Logged in as Super User (admin) at Inpatient Ward.");
 
         myClick(lp.registerAPatientBtn);
-
         mySendKeys(rap.givenNameInput, ConfigReader.getProperty("givenName"));
-
         mySendKeys(rap.familyNameInput, ConfigReader.getProperty("familyName"));
-
         myClick(rap.nextForGenderOption);
 
         myClick(rap.genderOption);
-
         myClick(rap.nextBtn);
 
         mySendKeys(rap.birthdateDay, birthdateDay);
-
-        Select select = new Select(rap.birthdateMonthDropdown);
-        select.selectByValue("10");
-
+        new Select(rap.birthdateMonthDropdown).selectByValue("10");
         mySendKeys(rap.birthdateYear, birthdateYear);
-
         myClick(rap.nextBtn);
 
         mySendKeys(rap.cityVillageInput, cityVillage);
-
         mySendKeys(rap.provinceInput, province);
-
         mySendKeys(rap.countryInput, country);
-
         myClick(rap.nextBtn);
 
         mySendKeys(rap.phoneNumberInput, phoneNumb);
-
         myClick(rap.nextBtn);
 
-        select = new Select(rap.relationshipTypeDropdown);
-        select.selectByVisibleText("Sibling");
-
+        new Select(rap.relationshipTypeDropdown).selectByVisibleText("Sibling");
         mySendKeys(rap.relationshipPersonNameInput, relationshipPerson);
-
         myClick(rap.nextBtn);
-
         myClick(rap.confirmBtn);
 
         wait.until(ExpectedConditions.visibilityOf(rap.patientName));
-        verifyDisplayed(rap.patientName, ConfigReader.getProperty("givenName"));
-
-        verifyDisplayed(rap.patientID, "Patient ID");
+        verifyContainsText(rap.patientName, ConfigReader.getProperty("givenName"));
+        verifyContainsText(rap.patientID, "Patient ID");
     }
 }

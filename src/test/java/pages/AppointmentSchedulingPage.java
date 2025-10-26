@@ -17,6 +17,9 @@ public class AppointmentSchedulingPage extends ReusableMethods {
     @FindBy(id = "patient-search")
     public WebElement patientSearch;
 
+    @FindBy(xpath = "//table[@id='patient-search-results-table']/tbody/tr[1]/td[3]")
+    public WebElement patientInfo;
+
     @FindBy(xpath = "//div[@id='time-zone-warning']/div/div/p")
     public WebElement timezoneWarning;
 }

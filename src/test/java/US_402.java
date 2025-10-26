@@ -11,10 +11,9 @@ public class US_402 extends ReusableMethods {
         HomePage hp=new HomePage();
 
         driver.get(ConfigReader.getProperty("url"));
-        mySendKeys(lp.usernameInput, ConfigReader.getProperty("usernameValid"));
-        mySendKeys(lp.passwordInput, ConfigReader.getProperty("passwordValid"));
-        myClick(lp.inpatientWardLocation);
-        myClick(lp.loginBtn);
+
+        lp.loginValidUser();
+
         verifyContainsText(hp.loggedInMessage, "Logged in as Super User (admin) at Inpatient Ward.");
     }
 }

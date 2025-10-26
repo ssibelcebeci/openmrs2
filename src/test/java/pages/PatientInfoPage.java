@@ -23,6 +23,9 @@ public class PatientInfoPage extends ReusableMethods {
     @FindBy(xpath = "//a[@id='org.openmrs.module.coreapps.deletePatient']")
     public WebElement deletePatientBtn;
 
+    @FindBy(xpath = "//table[@id='patient-search-results-table']/tbody/tr[1]/td[3]")
+    public WebElement chooseForDelete;
+
     @FindBy(id = "delete-reason")
     public WebElement deleteReasonInput;
 

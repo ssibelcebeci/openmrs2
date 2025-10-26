@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BaseDriver;
+import utils.ConfigReader;
 import utils.ReusableMethods;
 
 import java.util.List;
@@ -40,4 +41,18 @@ public class LoginPage extends ReusableMethods {
 
     @FindBy(id = "sessionLocation")
     public List<WebElement> locations;
+
+    public void loginValidUser() {
+        mySendKeys(usernameInput, ConfigReader.getProperty("usernameValid"));
+        mySendKeys(passwordInput, ConfigReader.getProperty("passwordValid"));
+        myClick(inpatientWardLocation);
+        myClick(loginBtn);
+    }
+
+    public void loginInvalidUser() {
+        mySendKeys(usernameInput, ConfigReader.getProperty("usernameInvalid"));
+        mySendKeys(passwordInput, ConfigReader.getProperty("passwordInvalid"));
+        myClick(inpatientWardLocation);
+        myClick(loginBtn);
+    }
 }

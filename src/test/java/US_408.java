@@ -15,10 +15,7 @@ public class US_408 extends ReusableMethods {
         FindPatientPage fpp=new FindPatientPage();
 
         driver.get(ConfigReader.getProperty("url"));
-        mySendKeys(lp.usernameInput, ConfigReader.getProperty("usernameValid"));
-        mySendKeys(lp.passwordInput, ConfigReader.getProperty("passwordValid"));
-        myClick(lp.inpatientWardLocation);
-        myClick(lp.loginBtn);
+        lp.loginValidUser();
 
         myClick(hp.findPatientRecordBtn);
 
