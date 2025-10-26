@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OpenMRS2" verbose="1">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+    <test name="Regression Tests">
+        <classes>
+            <class name="US_401"/>
+            <class name="US_402"/>
+            <class name="US_403"/>
+            <class name="US_404"/>
+            <class name="US_405"/>
+            <class name="US_406"/>
+            <class name="US_407"/>
+            <class name="US_408"/>
+            <class name="US_409"/>
+            <class name="US_410"/>
+        </classes>
+    </test>
+</suite>
